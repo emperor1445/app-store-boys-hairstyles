@@ -15,10 +15,9 @@
       "supportsTablet": true
     },
     "android": {
-      "googleServicesFile": "./android/app/google-services.json",
       "package": "com.boys.men.hairstles.haircut.styles.fashion",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/appicon.png", 
+        "foregroundImage": "./assets/appicon.png",
         "backgroundColor": "#ffffff"
       },
       "permissions": [
@@ -26,16 +25,16 @@
         "ACCESS_NETWORK_STATE"
       ]
     },
-    "plugins": [
-      "expo-notifications"
-    ],
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "d3799ca6-37be-4dc4-85e6-2e44ddb64367"
+        "projectId": "954f82c7-53cd-48ae-8b83-672d73cc22b6"
       }
-    }
+    },
+    "plugins": [
+      "expo-video"
+    ]
   }
 }

@@ -243,7 +243,7 @@ export default function DownloadPage() {
 
       {/* Header with Back Button */}
       <View
-        style={{ flexDirection: "row", alignItems: "center", marginBottom: 30, marginTop: 30}}
+        style={{ flexDirection: "row", alignItems: "center", marginBottom: 30, paddingTop: 40 }}
       >
         <TouchableOpacity onPress={() => router.back()}>
           <Ionicons name="arrow-back" size={24} color={"#fff"} />

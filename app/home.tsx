@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -21,6 +20,7 @@ import Animated, {
   withRepeat,
   withTiming,
 } from "react-native-reanimated";
+import { useEffect, useState } from "react";
 
 const App: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -30,29 +30,29 @@ const App: React.FC = () => {
     setIsModalVisible(!isModalVisible);
   };
 
-  // Share app logic
-  const handleShare = async () => {
-    try {
-      await Share.share({
-        message:
-          "Check out this amazing app: Latest Boys Fashion! Download it from the Play Store here: https://play.google.com/store/apps/details?id=com.boys.men.hairstles.haircut.styles.fashion",
-      });
-    } catch (error) {
-      Alert.alert("Error", "There was an issue sharing the app.");
-    }
-  };
+// Share app logic (App Store)
+const handleShare = async () => {
+  try {
+    await Share.share({
+      message:
+        "Check out this amazing app: Latest Boys Fashion! Download it from the App Store here: https://apps.apple.com/app/idYOUR_APP_ID",
+    });
+  } catch (error) {
+    Alert.alert("Error", "There was an issue sharing the app.");
+  }
+};
 
-  // Rate Us logic - Open app's Play Store page
-  const handleRateUs = () => {
-    Linking.openURL(
-      "https://play.google.com/store/apps/details?id=com.boys.men.hairstles.haircut.styles.fashion"
-    ).catch(() =>
-      Alert.alert(
-        "Error",
-        "Could not open the Play Store. Please check your internet connection."
-      )
-    );
-  };
+// Rate Us logic - Open app's App Store page
+const handleRateUs = () => {
+  Linking.openURL(
+    "https://apps.apple.com/app/idYOUR_APP_ID"
+  ).catch(() =>
+    Alert.alert(
+      "Error",
+      "Could not open the App Store. Please check your internet connection."
+    )
+  );
+};
 
   // Contact Us logic - Open email client
   const handleContactUs = () => {
@@ -94,7 +94,7 @@ const App: React.FC = () => {
             <Icon name="bookmark" size={28} color="blue" />
           </Link>
 
-          <TouchableOpacity onPress={() => router.push("/upload")}>
+          <TouchableOpacity onPress={() => router.push("/policy")}>
             <Animated.Image
               source={require("../assets/images/crown.png")}
               style={[styles.headerCrownIcon, animatedCrownStyle]}
@@ -149,8 +149,8 @@ const App: React.FC = () => {
               href={{
                 pathname: "/detail",
                 params: {
-                  title: "Beauty",
-                  tag: "bh1",
+                  title: "Celebrity-inspired",
+                  tag: "category1",
                 },
               }}
               asChild
@@ -163,8 +163,8 @@ const App: React.FC = () => {
                 <TouchableOpacity style={styles.heartIcon}>
                   <Icon name="favorite" size={24} color="red" />
                 </TouchableOpacity>
-                <Text style={styles.cardText}>Beauty</Text>
-                <Text style={styles.cardSubText}>+102 styles</Text>
+                <Text style={styles.cardText}>Celebrity-inspired</Text>
+                <Text style={styles.cardSubText}>Explore styles</Text>
               </TouchableOpacity>
             </Link>
 
@@ -172,8 +172,8 @@ const App: React.FC = () => {
               href={{
                 pathname: "/detail",
                 params: {
-                  title: "Trending",
-                  tag: "bh2",
+                  title: "Fades",
+                  tag: "category2",
                 },
               }}
               asChild
@@ -186,8 +186,8 @@ const App: React.FC = () => {
                 <TouchableOpacity style={styles.heartIcon}>
                   <Icon name="favorite" size={24} color="red" />
                 </TouchableOpacity>
-                <Text style={styles.cardText}>Trending</Text>
-                <Text style={styles.cardSubText}>+300 styles</Text>
+                <Text style={styles.cardText}>Fades</Text>
+                <Text style={styles.cardSubText}>Explore styles</Text>
               </TouchableOpacity>
             </Link>
 
@@ -195,8 +195,8 @@ const App: React.FC = () => {
               href={{
                 pathname: "/detail",
                 params: {
-                  title: "Elegance",
-                  tag: "bh3",
+                  title: "Classis",
+                  tag: "category3",
                 },
               }}
               asChild
@@ -209,8 +209,8 @@ const App: React.FC = () => {
                 <TouchableOpacity style={styles.heartIcon}>
                   <Icon name="favorite" size={24} color="red" />
                 </TouchableOpacity>
-                <Text style={styles.cardText}>Elegance</Text>
-                <Text style={styles.cardSubText}>+90 styles</Text>
+                <Text style={styles.cardText}>Classic</Text>
+                <Text style={styles.cardSubText}>Explore styles</Text>
               </TouchableOpacity>
             </Link>
           </ScrollView>
@@ -219,7 +219,7 @@ const App: React.FC = () => {
         {/* Promotional Card */}
         <TouchableOpacity
           style={styles.promoCard}
-          onPress={() => router.push("/upload")}
+          onPress={() => router.push("/policy")}
         >
           <LinearGradient
             colors={["#00c6ff", "#ff7300"]}
@@ -245,8 +245,8 @@ const App: React.FC = () => {
               href={{
                 pathname: "/detail",
                 params: {
-                  title: "Fashion",
-                  tag: "bh4",
+                  title: "Braids and Locks",
+                  tag: "category4",
                 },
               }}
               asChild
@@ -256,7 +256,7 @@ const App: React.FC = () => {
                   source={require("../assets/images/a4.jpg")}
                   style={styles.image}
                 />
-                <Text style={styles.cardText}>Fashion</Text>
+                <Text style={styles.cardText}>Braids and Locks</Text>
               </TouchableOpacity>
             </Link>
 
@@ -264,8 +264,8 @@ const App: React.FC = () => {
               href={{
                 pathname: "/detail",
                 params: {
-                  title: "Best Styles",
-                  tag: "bh5",
+                  title: "Trending Styles",
+                  tag: "category5",
                 },
               }}
               asChild
@@ -275,7 +275,7 @@ const App: React.FC = () => {
                   source={require("../assets/images/a5.jpg")}
                   style={styles.image}
                 />
-                <Text style={styles.cardText}>Best Styles</Text>
+                <Text style={styles.cardText}>Trending Styles</Text>
               </TouchableOpacity>
             </Link>
 
@@ -284,7 +284,7 @@ const App: React.FC = () => {
                 pathname: "/detail",
                 params: {
                   title: "Top Fashions",
-                  tag: "bh6",
+                  tag: "category6",
                 },
               }}
               asChild
@@ -308,8 +308,8 @@ const App: React.FC = () => {
               href={{
                 pathname: "/detail",
                 params: {
-                  title: "Men styles",
-                  tag: "bh7",
+                  title: "Timeless",
+                  tag: "category7",
                 },
               }}
               asChild
@@ -326,8 +326,8 @@ const App: React.FC = () => {
               href={{
                 pathname: "/detail",
                 params: {
-                  title: "HairStyles",
-                  tag: "bh8",
+                  title: "Formal",
+                  tag: "category8",
                 },
               }}
               asChild
@@ -344,8 +344,8 @@ const App: React.FC = () => {
               href={{
                 pathname: "/detail",
                 params: {
-                  title: "HairStyles",
-                  tag: "bh9",
+                  title: "casual",
+                  tag: "category9",
                 },
               }}
               asChild
@@ -363,7 +363,7 @@ const App: React.FC = () => {
                 pathname: "/detail",
                 params: {
                   title: "HairStyles",
-                  tag: "bh10",
+                  tag: "category10",
                 },
               }}
               asChild
@@ -380,8 +380,8 @@ const App: React.FC = () => {
               href={{
                 pathname: "/detail",
                 params: {
-                  title: "HairStyles",
-                  tag: "bh11",
+                  title: "Fashion",
+                  tag: "category11",
                 },
               }}
               asChild
@@ -398,8 +398,8 @@ const App: React.FC = () => {
               href={{
                 pathname: "/detail",
                 params: {
-                  title: "HairStyles",
-                  tag: "bh12",
+                  title: "Sleek",
+                  tag: "category12",
                 },
               }}
               asChild
@@ -418,7 +418,7 @@ const App: React.FC = () => {
       {/* Floating Action Button */}
       <TouchableOpacity
         style={styles.fab}
-        onPress={() => router.push("/upload")}
+        onPress={() => router.push("/policy")}
       >
         <LinearGradient
           colors={["#00c6ff", "#ff7300"]}
@@ -435,7 +435,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#121212",
-    paddingTop: 20,
+    paddingTop: 30,
   },
   header: {
     flexDirection: "row",
@@ -443,6 +443,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     paddingVertical: 10,
+    marginTop: 20,
   },
   headerText: {
     fontSize: 20,
@@ -622,4 +623,6 @@ const styles = StyleSheet.create({
   },
 });
 
+
 export default App;
+

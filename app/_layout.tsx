@@ -1,27 +1,24 @@
 import { Stack } from "expo-router";
 import { useEffect } from "react";
-import { requestUserPermission, getFcmToken, subscribeToTopic } from "../hooks/notifications";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function RootLayout() {
   useEffect(() => {
-    AsyncStorage.clear(); // Remove this before production
-
-    // Request permission for notifications
-    requestUserPermission();
-
-    // Get the device's FCM token
-    getFcmToken();
-
-    // Subscribe the user to the 'allUsers' topic
-    subscribeToTopic("allUsers");
+    // any app-level effects
   }, []);
 
   return (
-    <Stack>
+    <Stack
+      screenOptions={{
+        headerShown: false, // disable header by default for all screens
+      }}
+    >
+      {/* Custom config for index screen */}
       <Stack.Screen
         name="index"
-        options={{ title: "Men", headerShown: false }}
+        options={{
+          title: "Men",
+          headerShown: false, // still redundant here but explicit
+        }}
       />
     </Stack>
   );

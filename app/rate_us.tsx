@@ -9,23 +9,28 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import InAppReview from "react-native-in-app-review";
+import InAppReview from "react-native-in-app-review"; // Make sure you have installed this dependency
 
 export default function RateUsScreen() {
   const router = useRouter();
 
+  // Function to handle "Continue" button press
   const onContinue = async () => {
+    // Check if in-app review is available and trigger it
     if (InAppReview.isAvailable()) {
       InAppReview.RequestInAppReview();
     } else {
+      // If in-app review is not available, just continue to the next screen
       console.log("In-app review not available");
     }
 
+    // Mark that the user has rated (in case they skip)
     await AsyncStorage.setItem("hasRated", "true");
 
+    // Navigate to home after a short delay (ensure review process has a moment to complete)
     setTimeout(() => {
       router.replace("/home");
-    }, 2000);
+    }, 2000); // Adjust this timing if needed for better UX
   };
 
   return (
@@ -52,14 +57,14 @@ export default function RateUsScreen() {
           </View>
 
           <Text style={styles.reviewText}>
-            I find this app highly motivating for improving my fashion skills, also helped me promote my own designs
+            I find this app highly motivating for improving my drawing skills,
             and its functionality is fantastic! I'm thrilled with my initial
             progress.
           </Text>
 
           <View style={styles.imageContainer}>
             <Image
-              source={require("../assets/images/a12.jpg")}
+              source={require("../assets/images/a10.jpg")}
               style={styles.reviewImage}
             />
           </View>
