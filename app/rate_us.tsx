@@ -57,9 +57,7 @@ export default function RateUsScreen() {
           </View>
 
           <Text style={styles.reviewText}>
-            I find this app highly motivating for improving my drawing skills,
-            and its functionality is fantastic! I'm thrilled with my initial
-            progress.
+           I find this app incredibly useful for exploring new hairstyles. The variety of styles and the ease of use make it a must-have for anyone looking to change up their look.
           </Text>
 
           <View style={styles.imageContainer}>
@@ -71,8 +69,7 @@ export default function RateUsScreen() {
         </View>
 
         <Text style={styles.bottomText}>
-          Help us improve the app by leaving us a review in the Google Play
-          Store
+          Help us improve the app by leaving us a review in the App Store
         </Text>
 
         <TouchableOpacity style={styles.button} onPress={onContinue}>
