@@ -25,7 +25,7 @@ const ReferralDialog: React.FC = () => {
   const handleReferNow = async () => {
     try {
       const result = await Share.share({
-        message: 'Hey! Check out this amazing fashion app and claim your reward now. Download it here: https://play.google.com/store/apps/details?id=com.boys.men.hairstles.haircut.styles.fashion',
+        message: 'Hey! Check out this awesome app for hairstyles I found: https://apps.apple.com/app/idYOUR_APP_ID', // Replace with your actual app link
       });
 
       // Optionally check if the user actually shared
@@ -52,7 +52,7 @@ const ReferralDialog: React.FC = () => {
               style={{ width: 150, height: 150 }}
             />
             <Text style={styles.title}>
-              Refer 3 friends and get and enjoy exclusive rewards and discounts now!🎁
+              "Share this app with your fashion enthusiast friends and let them explore trendy hairstyles too!"
             </Text>
 
             <TouchableOpacity style={styles.referButton} onPress={handleReferNow}>
